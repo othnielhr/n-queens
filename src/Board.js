@@ -84,7 +84,7 @@
       for (var i = 0; i < temp.length; i++) {
         count += temp[i];
       }
-      console.log(count);
+      // console.log(count);
       if (count > 1) {
         return true;
       } else {
@@ -139,11 +139,35 @@
     //
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
-      return false; // fixme
+      var board = this.rows();
+      var coln = majorDiagonalColumnIndexAtFirstRow;
+      var count = 0;
+      for (let row = 0; row < board.length; row++) {
+        // if (coln >= 0) {
+        if (board[row][coln] === 1) {
+          count++;
+        }
+        // }
+        coln++;
+      }
+      if (count > 1) {
+        return true;
+      }
+      return false;
     },
+
+
 
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
+      var board = this.rows();
+      var n = this.get('n') - 1;
+      //[-3,-2,-1,0,1,2,3]
+      for (var coln = -n; coln < board.length; coln++) {
+        if (this.hasMajorDiagonalConflictAt(coln)) {
+          return true;
+        }
+      }
       return false; // fixme
     },
 
