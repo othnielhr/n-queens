@@ -29,8 +29,7 @@ describe('solvers', function() {
 
         expect(solutionCount).to.be.equal(expectedSolutionCount);
       });
-    });
-
+    }).timeout(10000);
   });
 
   describe('findNQueensSolution()', function() {
