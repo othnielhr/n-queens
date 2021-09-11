@@ -78,6 +78,8 @@
     // --------------------------------------------------------------
     //
     // test if a specific row on this board contains a conflict
+
+    // time: O(n)
     hasRowConflictAt: function(rowIndex) {
       var temp = this.get(rowIndex);
       var count = 0;
@@ -93,6 +95,8 @@
     },
 
     // test if any rows on this board contain conflicts
+
+    // time: O(n^2)
     hasAnyRowConflicts: function() {
       var arr = this.rows();
       for (var i = 0; i < arr.length; i++) {
@@ -109,6 +113,8 @@
     // --------------------------------------------------------------
     //
     // test if a specific column on this board contains a conflict
+
+    // time O(n);
     hasColConflictAt: function(colIndex) {
       var arr = this.rows();
       var count = 0;
@@ -122,6 +128,8 @@
     },
 
     // test if any columns on this board contain conflicts
+
+    // time: O(n^2);
     hasAnyColConflicts: function() {
       var arr = this.rows();
       for (var i = 0; i < arr.length; i++) {
@@ -138,6 +146,8 @@
     // --------------------------------------------------------------
     //
     // test if a specific major diagonal on this board contains a conflict
+
+    //time O(n)
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
       var board = this.rows();
       var coln = majorDiagonalColumnIndexAtFirstRow;
@@ -159,6 +169,8 @@
 
 
     // test if any major diagonals on this board contain conflicts
+
+    // time: O(n^2)
     hasAnyMajorDiagonalConflicts: function() {
       var board = this.rows();
       var n = this.get('n') - 1;
@@ -176,6 +188,8 @@
     // --------------------------------------------------------------
     //
     // test if a specific minor diagonal on this board contains a conflict
+
+    //time O(n)
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow) {
       var board = this.rows();
       var coln = minorDiagonalColumnIndexAtFirstRow;
@@ -195,6 +209,8 @@
     },
 
     // test if any minor diagonals on this board contain conflicts
+
+    // time: O(n^2)
     hasAnyMinorDiagonalConflicts: function() {
       var board = this.rows();
       var n = (board.length - 1) + (this.get('n') - 1);
